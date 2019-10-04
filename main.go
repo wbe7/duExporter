@@ -13,6 +13,7 @@ import (
 
 var pathDir string
 
+//TODO зарефакторить http сервер и уменьшить время обработки запроса
 func main() {
 	flag.StringVar(&pathDir, "p", ".", "Enter path to directory")
 	flag.Parse()
@@ -35,6 +36,7 @@ func checkDir() string {
 	}
 }
 
+//TODO разобрать данную функцию
 func DirSize(path string) (int64, error) {
 	var size int64
 	err := filepath.Walk(path, func(_ string, info os.FileInfo, err error) error {
