@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
-	"time"
 )
 
 var pathDir string
@@ -26,14 +25,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func checkDir() string {
-	for {
-		size, _ := DirSize(pathDir)
-		fmt.Print("check_leveldb_store ")
-		fmt.Println(size)
-		o := "check_leveldb_store " + strconv.FormatInt(size, 10)
-		time.Sleep(5 * time.Second)
-		return o
-	}
+	size, _ := DirSize(pathDir)
+	fmt.Print("check_leveldb_store ")
+	fmt.Println(size)
+	o := "check_leveldb_store " + strconv.FormatInt(size, 10)
+	return o
+
 }
 
 //TODO разобрать данную функцию
